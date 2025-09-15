@@ -43,6 +43,6 @@
     "uuid-v4": "^0.1.0"
   },
   "scripts": {
-    "build": "lerna exec --ignore=troika-examples -- rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
+    "build": "lerna exec --ignore=troika-examples -- rollup -c \\$LERNA_ROOT_PATH/rollup.config.js"
   }
 }
