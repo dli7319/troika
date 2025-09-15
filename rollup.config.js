@@ -1,6 +1,6 @@
 import buble from 'rollup-plugin-buble'
-import closureCompiler from '@ampproject/rollup-plugin-closure-compiler'
 import fs from 'fs'
+import typescript from '@rollup/plugin-typescript';
 
 
 /*
@@ -84,41 +84,25 @@ for (let entry of Object.keys(entries)) {
       },
       external: Object.keys(EXTERNAL_GLOBALS),
       plugins: [
-        TRANSPILE_PACKAGES.includes(LERNA_PACKAGE_NAME) ? buble() : null
-      ],
-      onwarn
-    },
-    // UMD file
-    {
-      input: entry,
-      output: {
-        format: 'umd',
-        file: `dist/${outFilePrefix}.umd.js`,
-        name: EXTERNAL_GLOBALS[LERNA_PACKAGE_NAME],
-        globals: EXTERNAL_GLOBALS
-      },
-      external: Object.keys(EXTERNAL_GLOBALS),
-      plugins: [
-        TRANSPILE_PACKAGES.includes(LERNA_PACKAGE_NAME) ? buble() : null
-      ],
-      onwarn
-    },
-    // UMD file, minified
-    {
-      input: entry,
-      output: {
-        format: 'umd',
-        file: `dist/${outFilePrefix}.umd.min.js`,
-        name: EXTERNAL_GLOBALS[LERNA_PACKAGE_NAME],
-        globals: EXTERNAL_GLOBALS
-      },
-      external: Object.keys(EXTERNAL_GLOBALS),
-      plugins: [
         TRANSPILE_PACKAGES.includes(LERNA_PACKAGE_NAME) ? buble() : null,
-        closureCompiler()
+        typescript({
+          declarationDir: "dist/",
+          tsconfig: '../../tsconfig.json',
+          noForceEmit: true,
+          compilerOptions: {
+            "target": "es2022",
+            "moduleResolution": "node",
+            "allowJs": true,
+            "declaration": true,
+            "emitDeclarationOnly": true
+          },
+          include: [
+            "src/**/*.js"
+          ],
+        })
       ],
       onwarn
-    }
+    },
   )
 }
 

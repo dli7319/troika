@@ -282,7 +282,6 @@ class Object3DFacade extends PointerEventTarget {
    * Ensure the object's geometry, if any, has an up-to-date bounding Sphere, and return that Sphere.
    * The returned Sphere will be assigned a unique `version` property when it is modified, which can
    * be used elsewhere for tracking changes.
-   * @private
    */
   _getGeometryBoundingSphere() {
     const geometry = this.getGeometry()
@@ -323,7 +322,7 @@ class Object3DFacade extends PointerEventTarget {
   }
 
   /**
-   * @protected Extension point for subclasses that don't use their threeObject's geometry, e.g. Instanceable
+   * Extension point for subclasses that don't use their threeObject's geometry, e.g. Instanceable
    */
   getGeometry() {
     const obj = this.threeObject
@@ -347,7 +346,6 @@ class Object3DFacade extends PointerEventTarget {
    * Custom optimized raycast that, unlike Raycaster.intersectObject(), avoids creating a
    * new array unless there are actually hits. It also supports the custom `raycastSide`
    * override property, hit on sides other than the material's configured `side`.
-   * @protected
    */
   _raycastObject(obj, raycaster) {
     if (obj.visible) {
