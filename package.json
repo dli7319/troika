@@ -1,5 +1,5 @@
 {
-  "name": "@david18284/troika-types",
+  "name": "troika-types",
   "version": "0.0.1",
   "description": "Troika - a framework for managing Three.js scenes using point-in-time descriptors. Includes support for automatic transitions, animations, and pointer events.",
   "author": "Jason Johnston <jason@lojjic.com>",
