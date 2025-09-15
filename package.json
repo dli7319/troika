@@ -7,6 +7,10 @@
   "files": [
     "packages/**/dist/**/*.d.ts"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dli7319/troika.git"
+  },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
     "@babel/core": "^7.12.16",
