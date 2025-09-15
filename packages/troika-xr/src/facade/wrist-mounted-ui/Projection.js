@@ -79,11 +79,11 @@ let createMaterial = function() {
  * a single world-space source vertex to an arbitrary target shape, with animated lines
  * traveling from source to target.
  *
- * @member {Vector3} sourceWorldPosition - The world-space position of the cone's source
- * @member {number[]} targetVertices - The local-space vertices describing the target shape,
+ * @type {Vector3} sourceWorldPosition - The world-space position of the cone's source
+ * @type {number[]} targetVertices - The local-space vertices describing the target shape,
  *         e.g. a rectangle or circle. This array is treated as immutable, so if you need to
  *         update the vertices then pass a new array instance.
- * @member {Color|number|string} color - The color of the
+ * @type {Color|number|string} color - The color of the
  */
 export class Projection extends MeshFacade {
   constructor (parent) {

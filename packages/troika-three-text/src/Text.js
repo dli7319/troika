@@ -96,13 +96,13 @@ class Text extends Mesh {
     // === Text layout properties: === //
 
     /**
-     * @member {string} text
+     * @type {string} text
      * The string of text to be rendered.
      */
     this.text = ''
 
     /**
-     * @member {number|string} anchorX
+     * @type {number|string} anchorX
      * Defines the horizontal position in the text block that should line up with the local origin.
      * Can be specified as a numeric x position in local units, a string percentage of the total
      * text block width e.g. `'25%'`, or one of the following keyword strings: 'left', 'center',
@@ -111,7 +111,7 @@ class Text extends Mesh {
     this.anchorX = 0
 
     /**
-     * @member {number|string} anchorY
+     * @type {number|string} anchorY
      * Defines the vertical position in the text block that should line up with the local origin.
      * Can be specified as a numeric y position in local units (note: down is negative y), a string
      * percentage of the total text block height e.g. `'25%'`, or one of the following keyword strings:
@@ -120,7 +120,7 @@ class Text extends Mesh {
     this.anchorY = 0
 
     /**
-     * @member {number} curveRadius
+     * @type {number} curveRadius
      * Defines a cylindrical radius along which the text's plane will be curved. Positive numbers put
      * the cylinder's centerline (oriented vertically) that distance in front of the text, for a concave
      * curvature, while negative numbers put it behind the text for a convex curvature. The centerline
@@ -132,14 +132,14 @@ class Text extends Mesh {
     this.curveRadius = 0
 
     /**
-     * @member {string} direction
+     * @type {string} direction
      * Sets the base direction for the text. The default value of "auto" will choose a direction based
      * on the text's content according to the bidi spec. A value of "ltr" or "rtl" will force the direction.
      */
     this.direction = 'auto'
 
     /**
-     * @member {string|null} font
+     * @type {string|null} font
      * URL of a custom font to be used. Font files can be in .ttf, .otf, or .woff (not .woff2) formats.
      * Defaults to Noto Sans.
      */
@@ -148,53 +148,53 @@ class Text extends Mesh {
     this.unicodeFontsURL = null //defaults to CDN
 
     /**
-     * @member {number} fontSize
+     * @type {number} fontSize
      * The size at which to render the font in local units; corresponds to the em-box height
      * of the chosen `font`.
      */
     this.fontSize = 0.1
 
     /**
-     * @member {number|'normal'|'bold'}
+     * @type {number|'normal'|'bold'}
      * The weight of the font. Currently only used for fallback Noto fonts.
      */
     this.fontWeight = 'normal'
 
     /**
-     * @member {'normal'|'italic'}
+     * @type {'normal'|'italic'}
      * The style of the font. Currently only used for fallback Noto fonts.
      */
     this.fontStyle = 'normal'
 
     /**
-     * @member {string|null} lang
+     * @type {string|null} lang
      * The language code of this text; can be used for explicitly selecting certain CJK fonts.
      */
     this.lang = null;
 
       /**
-     * @member {number} letterSpacing
+     * @type {number} letterSpacing
      * Sets a uniform adjustment to spacing between letters after kerning is applied. Positive
      * numbers increase spacing and negative numbers decrease it.
      */
     this.letterSpacing = 0
 
     /**
-     * @member {number|string} lineHeight
+     * @type {number|string} lineHeight
      * Sets the height of each line of text, as a multiple of the `fontSize`. Defaults to 'normal'
      * which chooses a reasonable height based on the chosen font's ascender/descender metrics.
      */
     this.lineHeight = 'normal'
 
     /**
-     * @member {number} maxWidth
+     * @type {number} maxWidth
      * The maximum width of the text block, above which text may start wrapping according to the
      * `whiteSpace` and `overflowWrap` properties.
      */
     this.maxWidth = Infinity
 
     /**
-     * @member {string} overflowWrap
+     * @type {string} overflowWrap
      * Defines how text wraps if the `whiteSpace` property is `normal`. Can be either `'normal'`
      * to break at whitespace characters, or `'break-word'` to allow breaking within words.
      * Defaults to `'normal'`.
@@ -202,19 +202,19 @@ class Text extends Mesh {
     this.overflowWrap = 'normal'
 
     /**
-     * @member {string} textAlign
+     * @type {string} textAlign
      * The horizontal alignment of each line of text within the overall text bounding box.
      */
     this.textAlign = 'left'
 
     /**
-     * @member {number} textIndent
+     * @type {number} textIndent
      * Indentation for the first character of a line; see CSS `text-indent`.
      */
     this.textIndent = 0
 
     /**
-     * @member {string} whiteSpace
+     * @type {string} whiteSpace
      * Defines whether text should wrap when a line reaches the `maxWidth`. Can
      * be either `'normal'` (the default), to allow wrapping according to the `overflowWrap` property,
      * or `'nowrap'` to prevent wrapping. Note that `'normal'` here honors newline characters to
@@ -226,7 +226,7 @@ class Text extends Mesh {
     // === Presentation properties: === //
 
     /**
-     * @member {THREE.Material} material
+     * @type {THREE.Material} material
      * Defines a _base_ material to be used when rendering the text. This material will be
      * automatically replaced with a material derived from it, that adds shader code to
      * decrease the alpha for each fragment (pixel) outside the text glyphs, with antialiasing.
@@ -238,7 +238,7 @@ class Text extends Mesh {
     this.material = null
 
     /**
-     * @member {string|number|THREE.Color} color
+     * @type {string|number|THREE.Color} color
      * This is a shortcut for setting the `color` of the text's material. You can use this
      * if you don't want to specify a whole custom `material`. Also, if you do use a custom
      * `material`, this color will only be used for this particuar Text instance, even if
@@ -247,7 +247,7 @@ class Text extends Mesh {
     this.color = null
 
     /**
-     * @member {object|null} colorRanges
+     * @type {object|null} colorRanges
      * WARNING: This API is experimental and may change.
      * This allows more fine-grained control of colors for individual or ranges of characters,
      * taking precedence over the material's `color`. Its format is an Object whose keys each
@@ -258,7 +258,7 @@ class Text extends Mesh {
     this.colorRanges = null
 
     /**
-     * @member {number|string} outlineWidth
+     * @type {number|string} outlineWidth
      * WARNING: This API is experimental and may change.
      * The width of an outline/halo to be drawn around each text glyph using the `outlineColor` and `outlineOpacity`.
      * Can be specified as either an absolute number in local units, or as a percentage string e.g.
@@ -268,7 +268,7 @@ class Text extends Mesh {
     this.outlineWidth = 0
 
     /**
-     * @member {string|number|THREE.Color} outlineColor
+     * @type {string|number|THREE.Color} outlineColor
      * WARNING: This API is experimental and may change.
      * The color of the text outline, if `outlineWidth`/`outlineBlur`/`outlineOffsetX/Y` are set.
      * Defaults to black.
@@ -276,7 +276,7 @@ class Text extends Mesh {
     this.outlineColor = 0x000000
 
     /**
-     * @member {number} outlineOpacity
+     * @type {number} outlineOpacity
      * WARNING: This API is experimental and may change.
      * The opacity of the outline, if `outlineWidth`/`outlineBlur`/`outlineOffsetX/Y` are set.
      * Defaults to `1`.
@@ -284,7 +284,7 @@ class Text extends Mesh {
     this.outlineOpacity = 1
 
     /**
-     * @member {number|string} outlineBlur
+     * @type {number|string} outlineBlur
      * WARNING: This API is experimental and may change.
      * A blur radius applied to the outer edge of the text's outline. If the `outlineWidth` is
      * zero, the blur will be applied at the glyph edge, like CSS's `text-shadow` blur radius.
@@ -294,7 +294,7 @@ class Text extends Mesh {
     this.outlineBlur = 0
 
     /**
-     * @member {number|string} outlineOffsetX
+     * @type {number|string} outlineOffsetX
      * WARNING: This API is experimental and may change.
      * A horizontal offset for the text outline.
      * Can be specified as either an absolute number in local units, or as a percentage string e.g. `"12%"`
@@ -303,7 +303,7 @@ class Text extends Mesh {
     this.outlineOffsetX = 0
 
     /**
-     * @member {number|string} outlineOffsetY
+     * @type {number|string} outlineOffsetY
      * WARNING: This API is experimental and may change.
      * A vertical offset for the text outline.
      * Can be specified as either an absolute number in local units, or as a percentage string e.g. `"12%"`
@@ -312,7 +312,7 @@ class Text extends Mesh {
     this.outlineOffsetY = 0
 
     /**
-     * @member {number|string} strokeWidth
+     * @type {number|string} strokeWidth
      * WARNING: This API is experimental and may change.
      * The width of an inner stroke drawn inside each text glyph using the `strokeColor` and `strokeOpacity`.
      * Can be specified as either an absolute number in local units, or as a percentage string e.g. `"12%"`
@@ -321,21 +321,21 @@ class Text extends Mesh {
     this.strokeWidth = 0
 
     /**
-     * @member {string|number|THREE.Color} strokeColor
+     * @type {string|number|THREE.Color} strokeColor
      * WARNING: This API is experimental and may change.
      * The color of the text stroke, if `strokeWidth` is greater than zero. Defaults to gray.
      */
     this.strokeColor = defaultStrokeColor
 
     /**
-     * @member {number} strokeOpacity
+     * @type {number} strokeOpacity
      * WARNING: This API is experimental and may change.
      * The opacity of the stroke, if `strokeWidth` is greater than zero. Defaults to `1`.
      */
     this.strokeOpacity = 1
 
     /**
-     * @member {number} fillOpacity
+     * @type {number} fillOpacity
      * WARNING: This API is experimental and may change.
      * The opacity of the glyph's fill from 0 to 1. This behaves like the material's `opacity` but allows
      * giving the fill a different opacity than the `strokeOpacity`. A fillOpacity of `0` makes the
@@ -344,7 +344,7 @@ class Text extends Mesh {
     this.fillOpacity = 1
 
     /**
-     * @member {number} depthOffset
+     * @type {number} depthOffset
      * This is a shortcut for setting the material's `polygonOffset` and related properties,
      * which can be useful in preventing z-fighting when this text is laid on top of another
      * plane in the scene. Positive numbers are further from the camera, negatives closer.
@@ -352,7 +352,7 @@ class Text extends Mesh {
     this.depthOffset = 0
 
     /**
-     * @member {Array<number>} clipRect
+     * @type {Array<number>} clipRect
      * If specified, defines a `[minX, minY, maxX, maxY]` of a rectangle outside of which all
      * pixels will be discarded. This can be used for example to clip overflowing text when
      * `whiteSpace='nowrap'`.
@@ -360,7 +360,7 @@ class Text extends Mesh {
     this.clipRect = null
 
     /**
-     * @member {string} orientation
+     * @type {string} orientation
      * Defines the axis plane on which the text should be laid out when the mesh has no extra
      * rotation transform. It is specified as a string with two axes: the horizontal axis with
      * positive pointing right, and the vertical axis with positive pointing up. By default this
@@ -371,7 +371,7 @@ class Text extends Mesh {
     this.orientation = defaultOrient
 
     /**
-     * @member {number} glyphGeometryDetail
+     * @type {number} glyphGeometryDetail
      * Controls number of vertical/horizontal segments that make up each glyph's rectangular
      * plane. Defaults to 1. This can be increased to provide more geometrical detail for custom
      * vertex shader effects, for example.
@@ -379,7 +379,7 @@ class Text extends Mesh {
     this.glyphGeometryDetail = 1
 
     /**
-     * @member {number|null} sdfGlyphSize
+     * @type {number|null} sdfGlyphSize
      * The size of each glyph's SDF (signed distance field) used for rendering. This must be a
      * power-of-two number. Defaults to 64 which is generally a good balance of size and quality
      * for most fonts. Larger sizes can improve the quality of glyph rendering by increasing
@@ -389,7 +389,7 @@ class Text extends Mesh {
     this.sdfGlyphSize = null
 
     /**
-     * @member {boolean} gpuAccelerateSDF
+     * @type {boolean} gpuAccelerateSDF
      * When `true`, the SDF generation process will be GPU-accelerated with WebGL when possible,
      * making it much faster especially for complex glyphs, and falling back to a JavaScript version
      * executed in web workers when support isn't available. It should automatically detect support,

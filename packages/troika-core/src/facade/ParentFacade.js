@@ -27,7 +27,7 @@ export default class ParentFacade extends Facade {
     super(parent)
 
     /**
-     * @member {FacadeDescriptor | Array<FacadeDescriptor>} children
+     * @type {FacadeDescriptor | Array<FacadeDescriptor>} children
      * Descriptors for one or more child facades.
      */
     this.children = null

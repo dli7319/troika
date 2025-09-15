@@ -29,15 +29,15 @@ export const MESH_MATERIALS = {
 /**
  * A facade for rendering a Mesh. The following properties are supported:
  *
- * @member {Geometry|BufferGeometry} geometry - The geometry instance to be used for this
+ * @type {Geometry|BufferGeometry} geometry - The geometry instance to be used for this
  *         mesh. It's recommended to use a shared geometry instance between meshes when possible.
- * @member {string|class|Material} material - The type of the material to be used for this mesh. Can either
+ * @type {string|class|Material} material - The type of the material to be used for this mesh. Can either
  *         be a reference to a Material class, a Material instance, or one of the strings in the `MESH_MATERIALS`
  *         enum. Defaults to 'standard'.
- * @member {boolean} autoDisposeGeometry - Whether the geometry should be automatically disposed when this
+ * @type {boolean} autoDisposeGeometry - Whether the geometry should be automatically disposed when this
  *         mesh is removed from the scene. Defaults to `false`. You can set it to `true` as a memory optimization
  *         if the geometry is not expected to return to the scene later, but this is not generally needed.
- * @member {boolean} autoDisposeMaterial - Whether the material's shader program should be automatically disposed
+ * @type {boolean} autoDisposeMaterial - Whether the material's shader program should be automatically disposed
  *         when this mesh is removed from the scene. Defaults to `false`. You can set it to `true` as a memory
  *         optimization if the material uses a custom shader that is not expected to be used again, but this is
  *         not generally needed. Note that this will _not_ dispose any textures assigned to the material.

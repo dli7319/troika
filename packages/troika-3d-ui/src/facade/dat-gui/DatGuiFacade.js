@@ -42,11 +42,11 @@ const TYPE_FACADES = {
  * WebGL environments. This is particularly useful in WebXR, where overlaid HTML cannot be
  * used. It is interactable via both screen mouse/touch input and WebXR pointer inputs.
  *
- * @member {DatGuiItemDefinition[]} items - Defines the list of values to be presented.
- * @member {object} data - An object containing the current values for each of the `items`.
- * @member {function(object)} onUpdate - A function that gets called when the user changes any
+ * @type {DatGuiItemDefinition[]} items - Defines the list of values to be presented.
+ * @type {object} data - An object containing the current values for each of the `items`.
+ * @type {function(object)} onUpdate - A function that gets called when the user changes any
  *         values. It is passed the modified `data` object.
- * @member {number} [itemHeight] - Default height for the items.
+ * @type {number} [itemHeight] - Default height for the items.
  *
  * This extends {@link UIBlock3DFacade} so any of its supported properties can also be set.
  */
